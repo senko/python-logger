@@ -69,6 +69,8 @@ class Logger(object):
 
     show_source_location = True
 
+    # Formats the message as needed and calls the correct logging method
+    # to actually handle it
     def _raw_log(self, logfn, message, exc_info):
         cname = ''
         loc = ''
@@ -86,12 +88,24 @@ class Logger(object):
         logfn(loc + cname + fn + ': ' + message, exc_info=exc_info)
 
     def debug(self, message, exc_info=False):
+        """
+        Log a debug-level message. If exc_info is True, if an exception
+        was caught, show the exception information (message and stack trace).
+        """
         self._raw_log(logging.debug, message, exc_info)
 
     def warning(self, message, exc_info=False):
+        """
+        Log a warning-level message. If exc_info is True, if an exception
+        was caught, show the exception information (message and stack trace).
+        """
         self._raw_log(logging.warning, message, exc_info)
 
     def error(self, message, exc_info=False):
+        """
+        Log an error-level message. If exc_info is True, if an exception
+        was caught, show the exception information (message and stack trace).
+        """
         self._raw_log(logging.error, message, exc_info)
 
     @staticmethod
