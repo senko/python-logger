@@ -3,7 +3,7 @@
 # Simple wrapper for Python logging module. Adds information about location
 # emitting the debug information (file, line, function) and timestamp.
 #
-# Copyright (C) 2010. Senko Rasic <senko.rasic@dobarkod.hr>
+# Copyright (C) 2010, 2011 Senko Rasic <senko.rasic@dobarkod.hr>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
