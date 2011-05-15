@@ -27,6 +27,8 @@ import os.path
 import logging
 import traceback
 
+from logging import DEBUG, WARNING, ERROR
+
 class Logger(object):
     """
     Logger mixin/base class adding verbose logging to subclasses.
@@ -109,8 +111,14 @@ class Logger(object):
         self._raw_log(logging.error, message, exc_info)
 
     @staticmethod
-    def basicConfig():
-        logging.basicConfig(level=logging.DEBUG,
+    def basicConfig(level=DEBUG):
+        """
+        Apply a basic logging configuration which outputs the log to the
+        console (stderr). Optionally, the minimum log level can be set, one
+        of DEBUG, WARNING, ERROR (or any of the levels from the logging module).
+        If not set, DEBUG log level is used as minimum.
+        """
+        logging.basicConfig(level=level,
             format='%(asctime)s %(levelname)s %(message)s',
             datefmt='%Y-%m-%d %H:%M:%S')
 
