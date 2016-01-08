@@ -33,7 +33,7 @@ from logging import DEBUG, WARNING, ERROR, INFO
 class Logger(object):
     """
     Logger mixin/base class adding verbose logging to subclasses.
-    Subclasses get debug(), warning() and error() methods which, alongside
+    Subclasses get info(), debug(), warning() and error() methods which, alongside
     the information given, also show location of the message (file, line and
     function).
 
