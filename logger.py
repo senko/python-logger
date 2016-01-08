@@ -27,7 +27,7 @@ import os.path
 import logging
 import traceback
 
-from logging import DEBUG, WARNING, ERROR
+from logging import DEBUG, WARNING, ERROR, INFO
 
 
 class Logger(object):
@@ -89,6 +89,13 @@ class Logger(object):
                 fn += '()'
 
         logfn(loc + cname + fn + ': ' + message, exc_info=exc_info)
+
+    def info(self, message, exc_info=False):
+        """
+        Log a info-level message. If exc_info is True, if an exception
+        was caught, show the exception information (message and stack trace).
+        """
+        self._raw_log(logging.info, message, exc_info)
 
     def debug(self, message, exc_info=False):
         """
